@@ -67,41 +67,6 @@ describe("CrossChainNameService", function () {
     };
   }
 
-  // it("Should register a name and lookup the address", async function () {
-  //   const {
-  //     ccns_Register,
-  //     ccns_Receiver,
-  //     sourceLookup,
-  //     destinationLookup,
-  //     chainSelector,
-  //   } = await loadFixture(deployFixture);
-  //   const ccnsReceiverAddress = await ccns_Receiver.getAddress();
-  //   const ccnsRegisterAddress = await ccns_Register.getAddress();
-
-  //   //call enableChain() in register contract
-  //   await ccns_Register.enableChain(chainSelector, ccnsReceiverAddress, 200000);
-
-  //   // Set CrossChainNameServiceAddress for both lookup contracts
-  //   await sourceLookup.setCrossChainNameServiceAddress(ccnsRegisterAddress);
-  //   await destinationLookup.setCrossChainNameServiceAddress(
-  //     ccnsReceiverAddress
-  //   );
-
-  //   // Verify the setup
-  //   const chainData = await ccns_Register.s_chains(0);
-  //   expect(chainData[0]).to.equal(chainSelector);
-  //   expect(chainData[1]).to.equal(ccnsReceiverAddress);
-  //   expect(chainData[2]).to.equal(BigInt(200000));
-
-  //   const sourceCrossChainNameService =
-  //     await sourceLookup.s_crossChainNameService;
-  //   const destinationCrossChainNameService =
-  //     await destinationLookup.s_crossChainNameService;
-
-  //   expect(sourceCrossChainNameService).to.equal(ccnsRegisterAddress);
-  //   expect(destinationCrossChainNameService).to.equal(ccnsReceiverAddress);
-  // });
-
   it("Should register a name and lookup the address on source and destination", async function () {
     const { alice, ccns_Register, sourceLookup, destinationLookup } =
       await loadFixture(deployFixture);
